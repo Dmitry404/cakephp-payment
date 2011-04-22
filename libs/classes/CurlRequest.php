@@ -48,6 +48,8 @@ class PaymentsPlugin_CurlRequest implements PaymentsPlugin_IRequest
     {
         if(empty($this->_url)) {
             throw new Exception('empty URL');
+        } else {
+            $this->_setOption(CURLOPT_URL, $this->_url);
         }
 
         if($type == 'post') {
