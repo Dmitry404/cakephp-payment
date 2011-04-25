@@ -126,6 +126,8 @@ abstract class PaymentsPlugin_Gateway
     {
         $reflect = new ReflectionClass($this);
 
+        $this->_resultData['Gateway'] = str_replace('PaymentsPlugin_Gw', '', $reflect->getName());
+
         $properties = $reflect->getProperties(ReflectionProperty::IS_PROTECTED);
         foreach($properties as $property) {
             $propName = $property->getName();
